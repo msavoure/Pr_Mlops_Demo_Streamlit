@@ -14,7 +14,7 @@ st.sidebar.title("Paramètres")
 st.sidebar.markdown("Ajustez les valeurs des caractéristiques.")
 
 # API Endpoint
-API_URL = "http://localhost:5000/predict"
+API_URL = "https://wa-mlops-demo-f7h8a3e8hdc2dgdd.francecentral-01.azurewebsites.net/"
 
 # Titre principal
 st.title("Prédiction avec Machine Learning")

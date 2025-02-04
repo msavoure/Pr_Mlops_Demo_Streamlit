@@ -8,10 +8,8 @@ st.set_page_config(
     layout="centered"
 )
 
-# API Endpoint - ✅ CORRIGÉ
 API_URL = "https://wa-mlops-demo-f7h8a3e8hdc2dgdd.francecentral-01.azurewebsites.net/predict"
 
-# 🎨 Mise en forme
 st.markdown(
     """
     <style>
@@ -31,11 +29,11 @@ st.markdown(
 )
 
 # Barre latérale pour les paramètres
-st.sidebar.title("🔧 Paramètres")
+st.sidebar.title("Paramètres")
 st.sidebar.markdown("Ajustez les valeurs des caractéristiques ci-dessous.")
 
 # Titre principal
-st.title("🌸 Prédiction avec Machine Learning 🌿")
+st.title("Prédiction avec Machine Learning")
 st.write("Ce modèle prédit la catégorie d'une fleur en fonction de ses caractéristiques.")
 
 # Layout des entrées utilisateur
@@ -50,22 +48,21 @@ with col2:
     feature4 = st.number_input("📐 Largeur du pétale (cm)", value=0.2, min_value=0.0, step=0.1)
 
 # Bouton de prédiction avec spinner de chargement
-if st.button("🚀 Lancer la prédiction"):
+if st.button("Lancer la prédiction"):
     data = {"features": [feature1, feature2, feature3, feature4]}
     
     with st.spinner("🔄 Prédiction en cours..."):
         try:
             response = requests.post(API_URL, json=data, timeout=5)
-            response.raise_for_status()  # Vérifie si l'API répond correctement
+            response.raise_for_status()  
 
-            # Affichage du résultat
             prediction = response.json().get("prediction", "❌ Erreur")
             st.success(f"🌟 **Prédiction du modèle : {prediction}**")
-            st.balloons()  # Animation 🎈
+            st.balloons() 
 
         except requests.exceptions.RequestException as e:
             st.error(f"🚨 Erreur de connexion à l'API : {e}")
 
 # Pied de page
 st.markdown("---")
-st.markdown("🌟 **Projet File Rouge MLOps** - Démo avec Streamlit & FastAPI 🚀")
+st.markdown("**Projet File Rouge MLOps**")
